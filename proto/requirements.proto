@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "fr.pantheonsorbonne.cri.requirements";
+
+
+
+package requirements;
+
+
+service ReqCollector {
+
+  rpc pushRequirement(stream Requirement) returns (Empty) {};
+  rpc pullRequirement(Empty) returns (stream Requirement) {};
+}
+
+
+message Empty {}
+
+message Requirement {
+   string id = 1;
+   string issueURI=2;
+   
+}
+
